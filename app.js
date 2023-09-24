@@ -1,5 +1,6 @@
-const div = document.querySelector("div");
+const div = document.querySelector(".htmldiv");
 let img = document.createElement("img");
+const checkBoxDiv = document.querySelector("#checkBox");
 
 const phones = [
   {
@@ -70,11 +71,66 @@ const phones = [
 for (let i = 0; i < phones.length; i++) {
   div.innerHTML += `<div class="maindiv"><img src="./assets/${phones[i].image}" alt="">
   <h1>${phones[i].brand} ${phones[i].model}</br>
-     Ram:${phones[i].ram} GB </br>
-      Rom:${phones[i].rom} </br>
-       Camera:${phones[i].camera} </br>
-       <span class="price">Price: ${phones[i].price}/= pkr</span></h1>
-       <button>Add To Cart</button></div>`;
+  Ram:${phones[i].ram} GB </br>
+  Rom:${phones[i].rom} </br>
+  Camera:${phones[i].camera} </br>
+  <span class="price">Price: ${phones[i].price}/= pkr</span></h1>
+  <button onclick="checkBox(${i})">Add To Cart</button></div>`;
 }
 
+const newArr = [];
+
+function checkBox(index) {
+  if (newArr.includes(phones[index]) === true) {
+    for (let i = 0; i < newArr.length; i++) {
+      Swal.fire({
+        title: "Do you want to add to cart?",
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: "Add",
+        denyButtonText: `Don't Add`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire("Added!", "", "success");
+          if (newArr[i] === phones[index]) {
+            newArr[i].quantity += 1;
+            const items = JSON.stringify(newArr);
+            localStorage.setItem('cartArr' , items);
+            // console.log(newArr);
+          }
+        } else if (result.isDenied) {
+          Swal.fire("Order are not Added", "", "info");
+        }
+      });
+      
+    }
+  } else {
+    Swal.fire({
+      title: "Do you want to add to cart?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Add",
+      denyButtonText: `Don't Add`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire("Added!", "", "success");
+        phones[index].quantity = 1;
+        newArr.push(phones[index]);
+        console.log(newArr);
+        const items = JSON.stringify(newArr);
+        localStorage.setItem('cartArr' , items);
+      } else if (result.isDenied) {
+        Swal.fire("Order are not Added", "", "info");
+      }
+    });
+  }
+  
+
+}
+
+function goToCart() {
+  window.location = 'cart.html'
+}
 
