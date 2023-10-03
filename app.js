@@ -78,7 +78,9 @@ for (let i = 0; i < phones.length; i++) {
   <button onclick="checkBox(${i})">Add To Cart</button></div>`;
 }
 
-const newArr = [];
+const cartData = localStorage.getItem('cartArr')
+const jsonData = JSON.parse(cartData)
+const newArr = [...jsonData];
 
 function checkBox(index) {
   if (newArr.includes(phones[index]) === true) {
