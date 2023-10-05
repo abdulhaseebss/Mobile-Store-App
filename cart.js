@@ -17,9 +17,9 @@ function render() {
     if(items.length > 0){
         for (let i = 0; i < items.length; i++) {
             totalAmount += items[i].price * items[i].quantity
-            div.innerHTML += `<div class="maindiv"><img src="./assets/${items[i].image}" alt="">
+            div.innerHTML += `<div class="maindiv"><img class = "main-img" src="./assets/${items[i].image}" alt="">
             <h1>${items[i].brand} ${items[i].model}</br>
-            Quantity:<button class = "operator" onclick = "sumValue(${i})">-</button>${items[i].quantity}<button class = "operator" onclick="addValue(${i})">+</button></br>
+            Quantity:<button class = "operator add-btn" onclick = "sumValue(${i})">-</button>${items[i].quantity}<button class = "operator add-btn" onclick="addValue(${i})">+</button></br>
             <span class="price">Price: ${items[i].price}/= pkr</span></br>
             </h1>
             </div>`;

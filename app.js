@@ -69,18 +69,24 @@ const phones = [
 ];
 
 for (let i = 0; i < phones.length; i++) {
-  div.innerHTML += `<div class="maindiv"><img src="./assets/${phones[i].image}" alt="">
+  div.innerHTML += `<div class="maindiv"><img class = "main-img" src="./assets/${phones[i].image}" alt="">
   <h1>${phones[i].brand} ${phones[i].model}</br>
   Ram:${phones[i].ram} GB </br>
   Rom:${phones[i].rom} </br>
   Camera:${phones[i].camera} </br>
   <span class="price">Price: ${phones[i].price}/= pkr</span></h1>
-  <button onclick="checkBox(${i})">Add To Cart</button></div>`;
+  <button class = "add-btn" onclick="checkBox(${i})">Add To Cart</button></div>`;
 }
 
 const cartData = localStorage.getItem('cartArr')
 const jsonData = JSON.parse(cartData)
-const newArr = [...jsonData];
+let newArr;
+if (Array.isArray(jsonData)) {
+  newArr = [...jsonData];
+
+}else{
+  newArr = []
+}
 
 function checkBox(index) {
   if (newArr.includes(phones[index]) === true) {

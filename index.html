@@ -6,14 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Store</title>
     <link rel="stylesheet" href="style.css">
+    <link href="output.css" rel="stylesheet">
+    <link rel="stylesheet" href="responsive.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
+    <!-- navbar start -->
+    <nav class="bg-blue-400 p-3 flex justify-between items-center flex-wrap">
+        <div class="flex justify-evenly">
+            <img class="cursor-pointer" src="./assets/bar.svg" alt="bar">
+            <img class="h-7 ml-5 cursor-pointer" src="./assets/logo.svg" alt="logo">
+        </div>
+        <div class="flex block justify-evenly bg-white p-3 rounded-md search-bar ">
+            <input class="w-96" type="search" placeholder="Search...">
+            <img class="h-6 cursor-pointer" src="./assets/mic-blue.svg" alt="mic-blue">
+        </div>
+        <div class="flex gap-2 ">
+            <button class="login p-2 bg-white text-blue-400 w-24 rounded-md">log in</button>
+            <button class="button-register login p-2 w-24 rounded-md">Register</button>
+        </div>
+    </nav>
+    <!-- navbar end -->
+
+    <!-- category start -->
+
+    <div class="ml-64 mr-64 mt-3 mb-3 search-bar">
+        <div class="flex justify-evenly flex-wrap">
+            <p class="text-center text-xs cursor-pointer"><img class="h-12" src="./assets/mobiles.svg" alt="mobile">Mobiles</p>
+            <p class="text-center text-xs cursor-pointer"><img class="h-12" src="./assets/smart-watches.svg" alt="mobile">Smart Watches</p>
+            <p class="text-center text-xs cursor-pointer"><img class="h-12" src="./assets/wireless-earbuds.svg" alt="mobile">Wireless Earbuds</p>
+            <p class="text-center text-xs cursor-pointer"><img class="h-12" src="./assets/bluetooth-speakers.svg" alt="mobile">Bluetooth Speakers</p>
+            <p class="text-center text-xs cursor-pointer"><img class="h-12" src="./assets/power-banks.svg" alt="mobile">Power Banks</p>
+            <p class="text-center text-xs cursor-pointer"><img class="h-12" src="./assets/laptops.svg" alt="mobile">Laptops</p>
+            <p class="text-center text-xs cursor-pointer"><img class="h-12" src="./assets/tablets.svg" alt="mobile">Tablets</p>
+        </div>
+    </div>
+    <!-- category end -->
+
+    <!-- banner start -->
+
+    <div>
+        <img src="./assets/pakistan-priceoye-slider-qkxz8.jpg" alt="banner">
+    </div>
     <h1 class="my">Mobile Store</h1>
     <div class="htmldiv"></div>
     <img src="./assets/" alt="">
     <div id="checkBox">
-        <button onclick="goToCart()">Go To Cart</button>
+        <button class="add-btn" onclick="goToCart()">Go To Cart</button>
 
     </div>
 
